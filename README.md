@@ -1,3 +1,32 @@
+## Usage Example
+
+```
+module "ssm_patch_asg" {
+  source = "gutozntt/ssm-patch-asg/aws"
+
+  name = "ssm-patch-asg"
+
+  targets = {
+    myasg1 = {
+      asg_name       = "myasg1"
+      initial_ami    = "ami-06s22xxxx4e"
+      schedule       = "cron(0 0 1 ? * SUN *)"
+      subnet_id      = "subnet-04xxxxss504"
+      retention_days = 20
+    },
+    myasg2 = {
+      asg_name       = "myasg2"
+      initial_ami    = "ami-06s22xxxx4e"
+      schedule       = "cron(0 0 1 ? * SUN *)"
+      subnet_id      = "subnet-04xxxxss504"
+      retention_days = 20
+    }
+  }
+
+  tags = local.tags
+}
+```
+
 ## Requirements
 
 No requirements.
